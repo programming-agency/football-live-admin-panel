@@ -4,7 +4,7 @@ import { MdOutlineEmojiEvents, MdOutlineHive, MdOutlineOndemandVideo, MdOutlineP
 
 export const Footer = () => {
   return (
-    <div className='bg-black flex justify-between px-5 py-3 '>
+    <div className='bg-[#18191B] flex justify-between px-5 py-3 '>
 
       <Link href={"/matches"}>
         <div className='flex flex-col   items-center'>
@@ -22,13 +22,13 @@ export const Footer = () => {
         <div className='flex flex-col   items-center'>
           <MdOutlineOndemandVideo className='text-3xl' />
           <div>Live</div>
-        </div>        
+        </div>
       </Link>
       <Link href={"/team"}>
         <div className='flex flex-col   items-center'>
           <MdOutlinePeopleAlt className='text-3xl' />
           <div>Team</div>
-        </div>      
+        </div>
       </Link>
       <Link href={"/more"}>
         <div className='flex flex-col   items-center'>

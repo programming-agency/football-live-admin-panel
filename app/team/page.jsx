@@ -39,10 +39,7 @@ export default function Team() {
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-      </div>
-
-
-
+      </div> 
 
     </div>
   )

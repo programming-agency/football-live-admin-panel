@@ -3,8 +3,8 @@ import { MdInfoOutline, MdOutlineChevronRight,   MdOutlineShare,MdOutlineStarBor
 
 export default function More() {
     return (
-        <div className='bg-gray-800 flex pt-5 flex-col gap-3 h-screen'>
-            <div className='flex justify-between px-3 rounded-sm mx-3 py-3 bg-black'>
+        <div className='bg-[#1F2025] flex pt-5 flex-col gap-3  '>
+            <div className='flex justify-between px-3 rounded-sm mx-3 py-3 bg-[#090A0C]'>
                 <div className='flex justify-center items-center gap-3 '>
                     <div>
                         <MdInfoOutline className='text-2xl' />
@@ -15,7 +15,7 @@ export default function More() {
                     <MdOutlineChevronRight className='text-2xl' />
                 </div>
             </div>
-            <div className='flex justify-between px-3 rounded-sm mx-3 py-3 bg-black'>
+            <div className='flex justify-between px-3 rounded-sm mx-3 py-3  bg-[#090A0C]'>
                 <div className='flex justify-center items-center gap-3 '>
                     <div>
                         <MdOutlineShare className='text-2xl' />
@@ -26,7 +26,7 @@ export default function More() {
                     <MdOutlineChevronRight className='text-2xl' />
                 </div>
             </div>
-            <div className='flex justify-between px-3 rounded-sm mx-3 py-3 bg-black'>
+            <div className='flex justify-between px-3 rounded-sm mx-3 py-3  bg-[#090A0C]'>
                 <div className='flex justify-center items-center gap-3 '>
                     <div>
                         <MdOutlineStarBorderPurple500 className='text-2xl' />
@@ -37,7 +37,7 @@ export default function More() {
                     <MdOutlineChevronRight className='text-2xl' />
                 </div>
             </div>
-            <div className='flex justify-between px-3 rounded-sm mx-3 py-3 bg-black'>
+            <div className='flex justify-between px-3 rounded-sm mx-3 py-3  bg-[#090A0C]'>
                 <div className='flex justify-center items-center gap-3 '>
                     <div>
                         <MdPrivacyTip className='text-2xl' />

@@ -32,7 +32,7 @@ export default function Team() {
       </div>
 
       {/*show leagues details  */}
-      <div className='mt-5 bg-black h-[400px] overflow-scroll space-y-[2px]'>
+      <div className='mt-5 bg-black h-[400px] overflow-y-scroll space-y-[2px]'>
 
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />

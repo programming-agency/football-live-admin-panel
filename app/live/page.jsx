@@ -6,7 +6,7 @@ export default function Live() {
         <div className='bg-[#1F2025]'>
             <TVPlayer />
 
-            <div className='grid grid-cols-3 gap-5 my-10 px-5'>
+            <div className=' grid grid-cols-3 gap-5 my-10 px-5'>
 
                 <div className='flex flex-col ' >
                     <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />

@@ -1,3 +1,4 @@
+import ImageCard from '@/Components/ImageCard'
 import TeamLeaguesCard from '@/Components/TeamLeaguesCard'
 import React from 'react'
 
@@ -6,40 +7,74 @@ export default function Team() {
   return (
     <div className='bg-[#1F2025]'>
       {/* search bar */}
-      <div className='mt-3 px-3'>
+      <div className='pt-3 px-3'>
         <input type="text" placeholder="Search Leagues " className="input bg-black border-white w-full" />
       </div>
       {/* slider leagues */}
-      <div className="flex pt-5 overflow-x-scroll">
-        <div className="flex">
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-          <img className="h-14" src="https://i.ibb.co/TDGYCdk/download.png" alt="" />
-
+      <div className="carousel carousel-center max-w-md   space-x-4 bg-neutral rounded-box">
+        <div className="carousel-item">
+          {/* <img src="https://i.ibb.co/TDGYCdk/download.png" className="rounded-box" /> */}
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
         </div>
       </div>
 
       {/*show leagues details  */}
-      <div className='mt-5 bg-black h-[400px] overflow-y-scroll space-y-[2px]'>
+      <div className='h-[100vh] overflow-y-scroll'>
 
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
         <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-      </div> 
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
+      </div>
 
     </div>
   )

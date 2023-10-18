@@ -1,41 +1,43 @@
-import TVPlayer from '@/Components/TVPlayer'
-import React from 'react'
+"use client"
 
-export default function Live() {
-    return (
-        <div className='bg-[#1F2025]'>
-            <TVPlayer />
+import TVPlayer from "@/Components/TVPlayer"
+import { useState } from "react"
 
-            <div className=' grid grid-cols-3 gap-5 my-10 px-5'>
+async function getData() {
+    const res = await fetch('http://139.59.8.82/zahirfot/api.php?get_all_channels')
+    // The return value is *not* serialized
+    // You can return Date, Map, Set, etc.
 
-                <div className='flex flex-col ' >
-                    <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />
-                    <h1 className='text-center text-xl mt-2'>Live 6</h1>
-                </div>
-                <div className='flex flex-col ' >
-                    <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />
-                    <h1 className='text-center text-xl mt-2'>Live 5</h1>
-                </div>
-                <div className='flex flex-col ' >
-                    <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />
-                    <h1 className='text-center text-xl mt-2'>Live 4</h1>
-                </div>
-                <div className='flex flex-col ' >
-                    <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />
-                    <h1 className='text-center text-xl mt-2'>Live 3</h1>
-                </div>
-                <div className='flex flex-col ' >
-                    <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />
-                    <h1 className='text-center text-xl mt-2'>Live 2</h1>
-                </div>
-                <div className='flex flex-col ' >
-                    <img className='h-24 rounded-2xl' src="/tv.jpeg" alt="" />
-                    <h1 className='text-center text-xl mt-2'>Live 1</h1>
-                </div>
+    if (!res.ok) {
+        // This will activate the closest `error.js` Error Boundary
+        throw new Error('Failed to fetch data')
+    }
 
+    return res.json()
+}
 
-            </div>
+export default async function Page() {
+
+    const [currentTv, setCurrentTv] = useState("")
+
+    const data = await getData()
+    console.log(data.LIVETV);
+    return <main>
+
+        <TVPlayer channel_url={currentTv} />
+
+        <div className="grid grid-cols-2 gap-2 pt-10">
+            {
+                data.LIVETV.map((item, index) => (
+
+                    <div onClick={() => setCurrentTv(item.channel_url)} key={index}>
+                        <div className="flex flex-col justify-center items-center">
+                            <div> <img src={item.category_image} alt="" /></div>
+                            <div>  {item.channel_title}</div>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
-
-    )
+    </main>
 }

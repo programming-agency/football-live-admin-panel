@@ -72,7 +72,7 @@ export default function Admin() {
             </div>
 
             {/* Chart */}
-            <div className='grid grid-cols-2 gap-5 px-2'>
+            <div className='grid md:grid-cols-2 gap-5 px-2'>
 
                 <div className="card  bg-white text-primary-content">
                     <h1 className='text-black text-2xl text-center my-5  '> Matches</h1>

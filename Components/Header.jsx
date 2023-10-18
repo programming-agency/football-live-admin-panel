@@ -3,7 +3,7 @@ import { MdOutlineInsertInvitation, MdOutlineStarBorderPurple500, MdMoreHoriz, M
 
 export default function Header() {
     return (
-        <div className='flex  justify-between'>
+        <div className='flex   justify-between'>
             <div className='flex gap-3'>
                 <div className='text-2xl'> <MdSearch/></div>
                 <div className='text-2xl'> <MdOutlineStarBorderPurple500 /></div>

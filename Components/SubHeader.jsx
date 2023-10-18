@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SubHeader() {
     return (
-        <div className='flex gap-10 overflow-scroll'>
+        <div className=' flex gap-10 overflow-scroll'>
 
             <div>10</div>
             <div>11</div>

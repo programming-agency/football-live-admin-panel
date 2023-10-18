@@ -7,13 +7,13 @@ export default function Team() {
   return (
     <div className='bg-[#1F2025]'>
       {/* search bar */}
-      <div className='pt-3 px-3'>
+      <div className='pt-3 pb-3 px-3'>
         <input type="text" placeholder="Search Leagues " className="input bg-black border-white w-full" />
       </div>
       {/* slider leagues */}
-      <div className="carousel carousel-center max-w-md   space-x-4 bg-neutral rounded-box">
+      <div className="carousel carousel-center max-w-md  p-2 bg-black  space-x-2">
         <div className="carousel-item">
-          {/* <img src="https://i.ibb.co/TDGYCdk/download.png" className="rounded-box" /> */}
+          
           <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
         </div>
         <div className="carousel-item">

@@ -11,7 +11,31 @@ export default function Team() {
         <input type="text" placeholder="Search Leagues " className="input bg-black border-white w-full" />
       </div>
       {/* slider leagues */}
-      <div className="carousel carousel-center max-w-md  p-2 bg-black  space-x-2">
+      <div className="carousel carousel-center    p-2 bg-black  space-x-2">
+        <div className="carousel-item">
+          
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
+        <div className="carousel-item">
+          
+          <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />
+        </div>
         <div className="carousel-item">
           
           <ImageCard image="https://i.ibb.co/TDGYCdk/download.png" />

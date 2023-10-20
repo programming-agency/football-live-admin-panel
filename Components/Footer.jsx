@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <div className='bg-[#18191B] flex justify-between px-5 py-3 '>
 
-      <Link href={"/"}>
+      <Link href={"/matches"}>
         <div className='flex flex-col   items-center'>
           <MdOutlineHive className='text-2xl' />
           <div>Matches</div>

@@ -6,6 +6,7 @@ import MatchesCard from '@/Components/MatchesCard'
 import SubHeader from '@/Components/SubHeader'
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
+import Link from 'next/link'
 
 export default function Matches() {
   const [match, setMatch] = useState([]);
@@ -30,10 +31,11 @@ export default function Matches() {
       console.log(error);
     });
 
-  useEffect(() => {
+  // useEffect(() => {
 
-  }, [match])
-  console.log(match);
+
+  // }, [match])
+  // console.log(match);
 
   return (
     <div className=''>
@@ -46,17 +48,17 @@ export default function Matches() {
 
 
       {/* carousel item */}
-      <div className="carousel   bg-black carousel-center gap-3 space-x-2 ">
-        <div className="carousel-item gap-2">
+      <div className="carousel   bg-black carousel-center ">
+        <div className="carousel-item p-2 gap-2">
           {
             match.map((item, index) => (
               <div key={index}>
-                < ImageCard  image={item.league?.logo} />
+                < ImageCard image={item.league?.logo} />
               </div>
             ))
 
           }
-        </div>        
+        </div>
       </div>
 
       {/* Matches view  */}
@@ -65,16 +67,18 @@ export default function Matches() {
           match.map((item, index) => (
             <div key={index}>
               {/* {item.fixture.id} */}
-              <MatchesCard short={item.fixture.status?.short}
-                elapsed={item.fixture.status?.elapsed}
-                homeName={item.teams?.home?.name}
-                homePhoto={item.teams?.home?.logo}
-                awayName={item.teams?.away?.name}
-                awayPhoto={item.teams?.away?.logo}
-                homeGoals={item.goals?.home}
-                awayGoals={item.goals?.away}
-                venue={item.fixture?.venue.name}
-              />
+              <Link href={`/matches/${item.fixture.id}`}>
+                <MatchesCard short={item.fixture.status?.short}
+                  elapsed={item.fixture.status?.elapsed}
+                  homeName={item.teams?.home?.name}
+                  homePhoto={item.teams?.home?.logo}
+                  awayName={item.teams?.away?.name}
+                  awayPhoto={item.teams?.away?.logo}
+                  homeGoals={item.goals?.home}
+                  awayGoals={item.goals?.away}
+                  venue={item.fixture?.venue.name}
+                />
+              </Link>
             </div>
           ))
         }

@@ -4,6 +4,15 @@ export default function SubHeader() {
     return (
         <div className=' flex gap-10 overflow-scroll'>
 
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
             <div>10</div>
             <div>11</div>
             <div>12</div>
@@ -19,6 +28,13 @@ export default function SubHeader() {
             <div>22</div>
             <div>23</div>
             <div>24</div>
+            <div>25</div>
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+            <div>30</div>
+            <div>31</div>
 
         </div>
     )

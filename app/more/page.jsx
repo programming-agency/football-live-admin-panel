@@ -12,7 +12,7 @@ export default function More() {
                     <div> Abour us</div>
                 </div>
                 <div>
-                    <MdOutlineChevronRight className='text-2xl' />
+                    <MdOutlineChevronRight className='text-2xl'  />
                 </div>
             </div>
             <div className='flex justify-between px-3 rounded-sm mx-3 py-3  bg-[#090A0C]'>

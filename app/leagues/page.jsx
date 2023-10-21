@@ -7,29 +7,34 @@ export default function Leagues() {
 
   const [match, setMatch] = useState([]);
 
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  console.log(year);
 
-  var config = {
-    method: 'get',
-    url: 'https://v3.football.api-sports.io/leagues?season=2023',
-    headers: {
-      'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
-      'x-rapidapi-host': 'v3.football.api-sports.io'
-    }
-  };
 
-  axios(config)
-    .then(function (result) {
-      // console.log(JSON.stringify(response.data));
-      setMatch(result.data.response);
-      // console.log(result);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 
   useEffect(() => {
+    var config = {
+      method: 'get',
+      url: `https://v3.football.api-sports.io/leagues?season=${year}`,
+      headers: {
+        'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
+        'x-rapidapi-host': 'v3.football.api-sports.io'
+      }
+    };
 
-  }, [match])
+    axios(config)
+      .then(function (result) {
+        // console.log(JSON.stringify(response.data));
+        setMatch(result.data.response);
+        // console.log(result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }, [])
+
   console.log(match);
 
 

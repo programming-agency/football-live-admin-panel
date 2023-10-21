@@ -14,7 +14,7 @@ export default function Matches() {
 
   var config = {
     method: 'get',
-    url: 'https://v3.football.api-sports.io/fixtures?date=2023-10-18',
+    url: 'https://v3.football.api-sports.io/fixtures?date=2023-10-21',
     headers: {
       'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
       'x-rapidapi-host': 'v3.football.api-sports.io'

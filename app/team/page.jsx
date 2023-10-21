@@ -13,7 +13,7 @@ export default function Team() {
 
   const currentDate = new Date();
   const year = currentDate.getFullYear();
-  console.log(year);
+  // console.log(year);
 
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Team() {
 
 
   const getLeagueTeams = (leagueID) => {
-    console.log(leagueID);
+    // console.log(leagueID);
     var config = {
       method: 'get',
       url: `https://v3.football.api-sports.io/teams?season=${year}&league=${leagueID}`,
@@ -65,7 +65,7 @@ export default function Team() {
     getLeagueTeams(2)
   }, [])
 
-  console.log(team);
+  // console.log(team);
 
   return (
     <div className='bg-[#1F2025]'>
@@ -83,11 +83,10 @@ export default function Team() {
                 < ImageCard image={item.league?.logo} />
               </div>
             ))
-
           }
         </div>
       </div>
-      
+
       {/*show leagues details  */}
       <div className='bg-black space-y-1'>
 

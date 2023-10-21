@@ -10,6 +10,8 @@ import Link from 'next/link'
 
 export default function Matches() {
   const [match, setMatch] = useState([]);
+  const [favoriteLeague, setFavoriteLeague] = useState([]);
+
 
   // date formate
   const currentDate = new Date();
@@ -17,15 +19,14 @@ export default function Matches() {
   const month = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1
   const day = currentDate.getDate();
 
-  const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
-  console.log(formattedDate);
+  // const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
+  // console.log(formattedDate);
 
-
-
-  useEffect(() => {
+  const getMatch = (matchId) => {
+    console.log(matchId);
     var config = {
       method: 'get',
-      url: `https://v3.football.api-sports.io/fixtures?date=${formattedDate}`,
+      url: `https://v3.football.api-sports.io/fixtures?season=${year}&league=${matchId}`,
       headers: {
         'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
         'x-rapidapi-host': 'v3.football.api-sports.io'
@@ -35,12 +36,26 @@ export default function Matches() {
     axios(config)
       .then(function (result) {
         setMatch(result.data.response);
-        // console.log(result);
+        console.log(result);
       })
       .catch(function (error) {
         console.log(error);
       });
 
+  }
+
+  useEffect(() => {
+    fetch('/favoriteLeague.json')
+      .then(res => res.json())
+      .then(data => setFavoriteLeague(data))
+  }, [])
+
+
+
+
+  useEffect(() => {
+
+    getMatch(39)
   }, [])
   console.log(match);
 
@@ -88,15 +103,14 @@ export default function Matches() {
 
 
       {/* carousel item */}
-      <div className="carousel   bg-black carousel-center ">
+      <div className="carousel w-screen bg-black carousel-center ">
         <div className="carousel-item p-2 gap-2">
           {
-            match.map((item, index) => (
-              <div key={index}>
-                < ImageCard image={item.league?.logo} />
+            favoriteLeague.map((item, index) => (
+              <div key={index} onClick={() => getMatch(item.id)}>
+                < ImageCard image={item.image} />
               </div>
             ))
-
           }
         </div>
       </div>

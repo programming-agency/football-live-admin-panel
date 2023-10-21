@@ -10,32 +10,54 @@ import Link from 'next/link'
 
 export default function Matches() {
   const [match, setMatch] = useState([]);
+  const [favoriteLeague, setFavoriteLeague] = useState([]);
 
 
-  var config = {
-    method: 'get',
-    url: 'https://v3.football.api-sports.io/fixtures?date=2023-10-21',
-    headers: {
-      'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
-      'x-rapidapi-host': 'v3.football.api-sports.io'
-    }
-  };
+  // date formate
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1
+  const day = currentDate.getDate();
 
-  axios(config)
-    .then(function (result) {
-      // console.log(JSON.stringify(response.data));
-      setMatch(result.data.response);
-      // console.log(result);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  // const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
+  // console.log(formattedDate);
 
-  // useEffect(() => {
+  const getMatch = (matchId) => {
+    console.log(matchId);
+    var config = {
+      method: 'get',
+      url: `https://v3.football.api-sports.io/fixtures?season=${year}&league=${matchId}`,
+      headers: {
+        'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
+        'x-rapidapi-host': 'v3.football.api-sports.io'
+      }
+    };
+
+    axios(config)
+      .then(function (result) {
+        setMatch(result.data.response);
+        console.log(result);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+  }
+
+  useEffect(() => {
+    fetch('/favoriteLeague.json')
+      .then(res => res.json())
+      .then(data => setFavoriteLeague(data))
+  }, [])
 
 
-  // }, [match])
-  // console.log(match);
+
+
+  useEffect(() => {
+
+    getMatch(39)
+  }, [])
+  console.log(match);
 
   return (
     <div className=''>
@@ -43,20 +65,52 @@ export default function Matches() {
         <Header />
       </div>
       <div className='py-3'>
-        <SubHeader />
+        <div className=' flex gap-10 overflow-x-scroll'>
+
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>10</div>
+          <div>11</div>
+          <div>12</div>
+          <div>13</div>
+          <div>14</div>
+          <div>15</div>
+          <div>16</div>
+          <div>17</div>
+          <div>18</div>
+          <div>19</div>
+          <div>20</div>
+          <div>21</div>
+          <div>22</div>
+          <div>23</div>
+          <div>24</div>
+          <div>25</div>
+          <div>26</div>
+          <div>27</div>
+          <div>28</div>
+          <div>29</div>
+          <div>30</div>
+          <div>31</div>
+        </div>
       </div>
 
 
       {/* carousel item */}
-      <div className="carousel   bg-black carousel-center ">
+      <div className="carousel w-screen bg-black carousel-center ">
         <div className="carousel-item p-2 gap-2">
           {
-            match.map((item, index) => (
-              <div key={index}>
-                < ImageCard image={item.league?.logo} />
+            favoriteLeague.map((item, index) => (
+              <div key={index} onClick={() => getMatch(item.id)}>
+                < ImageCard image={item.image} />
               </div>
             ))
-
           }
         </div>
       </div>

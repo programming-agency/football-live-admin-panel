@@ -1,12 +1,10 @@
 "use client"
-
-import Header from '@/Components/Header'
-import ImageCard from '@/Components/ImageCard'
-import MatchesCard from '@/Components/MatchesCard'
-import SubHeader from '@/Components/SubHeader'
+import Header from '@/Components/Header'  
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import Link from 'next/link'
+import ImageCard from '@/Components/ImageCard'
+import MatchesCard from '@/Components/MatchesCard'
 
 export default function Matches() {
   const [match, setMatch] = useState([]);
@@ -108,7 +106,8 @@ export default function Matches() {
           {
             favoriteLeague.map((item, index) => (
               <div key={index} onClick={() => getMatch(item.id)}>
-                < ImageCard image={item.image} />
+                {/* < ImageCard image={item.image} /> */}
+                <img className="h-16" src={item.image} alt="" />
               </div>
             ))
           }

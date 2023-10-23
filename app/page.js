@@ -108,7 +108,7 @@ export default function Matches() {
           {
             favoriteLeague.map((item, index) => (
               <div key={index} onClick={() => getMatch(item.id)}>
-                < ImageCard image={item.image} />
+                <img className="h-16" src={item.image} alt="" />
               </div>
             ))
           }

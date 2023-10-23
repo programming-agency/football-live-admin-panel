@@ -1,17 +1,28 @@
 "use client"
 import LeaguesCard from '@/Components/LeaguesCard'
 import axios from 'axios';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
-export default function Leagues() {
 
+export default function Leagues() {
   const [match, setMatch] = useState([]);
+
 
   const currentDate = new Date();
   const year = currentDate.getFullYear();
   console.log(year);
 
 
+  const getMatch = (matchId) => {
+    console.log(matchId);
+  }
+
+  useEffect(() => {
+
+    getMatch()
+  }, [])
+  console.log(match);
 
   useEffect(() => {
     var config = {
@@ -46,16 +57,21 @@ export default function Leagues() {
       </div>
 
       {/* League card */}
+
       <div className='grid grid-cols-3 gap-1'>
         {
           match.map((item, index) => (
-            <div key={index}>
 
-              <LeaguesCard name={item.league.name} image={item.league?.logo} />
-            </div>
+            <Link key={index} href={`/leagues/${item.league.id}`}>
+              <div onClick={() => getMatch(item.league.id)}>
+
+                <LeaguesCard name={item.league.name} image={item.league?.logo} />
+              </div>
+            </Link>
           ))
         }
       </div>
+
 
       {/* <div className='pt-5 h-screen overflow-y-scroll grid grid-cols-3 gap-1 px-3'>
         <LeaguesCard name="Premier League" image='https://i.ibb.co/WDCwnxb/image.png' />

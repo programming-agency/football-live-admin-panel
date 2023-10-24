@@ -4,7 +4,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
-
 export default function Leagues() {
   const [match, setMatch] = useState([]);
 
@@ -13,16 +12,15 @@ export default function Leagues() {
   const year = currentDate.getFullYear();
   console.log(year);
 
-
   const getMatch = (matchId) => {
     console.log(matchId);
   }
 
   useEffect(() => {
-
     getMatch()
   }, [])
-  console.log(match);
+
+
 
   useEffect(() => {
     var config = {
@@ -33,27 +31,33 @@ export default function Leagues() {
         'x-rapidapi-host': 'v3.football.api-sports.io'
       }
     };
-
     axios(config)
       .then(function (result) {
-        // console.log(JSON.stringify(response.data));
         setMatch(result.data.response);
         // console.log(result);
       })
       .catch(function (error) {
         console.log(error);
       });
-
   }, [])
-
   console.log(match);
 
+  const handleSearch = (e) => {
+    const inputValue = e.target.value;
+
+    console.log(inputValue);
+
+  };
 
   return (
     <div className='bg-[#1F2025]'>
 
       <div className='pt-3 px-3'>
-        <input type="text" placeholder="Search Leagues " className="input bg-black border-white w-full" />
+        <input type="text"
+          placeholder="Search Leagues "
+          className="input bg-black border-white w-full"
+          onChange={handleSearch}
+        />
       </div>
 
       {/* League card */}

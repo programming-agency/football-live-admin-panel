@@ -19,8 +19,7 @@ export default function Matches() {
   const month = currentDate.getMonth() + 1; // Months are 0-indexed, so add 1
   const day = currentDate.getDate();
 
-  // const formattedDate = `${year}-${month < 10 ? '0' : ''}${month}-${day < 10 ? '0' : ''}${day}`;
-  // console.log(formattedDate);
+   
 
   const getMatch = (matchId) => {
     console.log(matchId);
@@ -32,7 +31,6 @@ export default function Matches() {
         'x-rapidapi-host': 'v3.football.api-sports.io'
       }
     };
-
     axios(config)
       .then(function (result) {
         setMatch(result.data.response);
@@ -49,9 +47,6 @@ export default function Matches() {
       .then(res => res.json())
       .then(data => setFavoriteLeague(data))
   }, [])
-
-
-
 
   useEffect(() => {
 

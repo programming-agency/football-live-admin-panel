@@ -1,88 +1,43 @@
 "use client"
-import ImageCard from '@/Components/ImageCard'
-import TeamLeaguesCard from '@/Components/TeamLeaguesCard'
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
 
-export default function Team() {
-  const [match, setMatch] = useState([]);
+import TVPlayer from "@/Components/TVPlayer"
+import { useState } from "react"
 
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
-  console.log(year);
+async function getData() {
+  const res = await fetch('http://139.59.8.82/zahirfot/api.php?get_all_channels')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
 
-  useEffect(() => {
-    var config = {
-      method: 'get',
-      url: `https://v3.football.api-sports.io/teams?season=${year}&league=2`,
-      headers: {
-        'x-rapidapi-key': '9934587b22930a733e2774cb3b1f3e1d',
-        'x-rapidapi-host': 'v3.football.api-sports.io'
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+
+  return res.json()
+}
+
+export default async function Page() {
+
+  const [currentTv, setCurrentTv] = useState("")
+
+  const data = await getData()
+  console.log(data.LIVETV);
+  return <main>
+
+    <TVPlayer channel_url={currentTv} />
+
+    <div className="grid grid-cols-2 gap-2 pt-10">
+      {
+        data.LIVETV.map((item, index) => (
+
+          <div onClick={() => setCurrentTv(item.channel_url)} key={index}>
+            <div className="flex flex-col justify-center items-center">
+              <div> <img src={item.category_image} alt="" /></div>
+              <div>  {item.channel_title}</div>
+            </div>
+          </div>
+        ))
       }
-    };
-
-    axios(config)
-      .then(function (result) {
-        // console.log(JSON.stringify(response.data));
-        setMatch(result.data.response);
-        // console.log(result);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-  }, [])
-
-  console.log(match);
-
-  return (
-    <div className='bg-[#1F2025]'>
-      {/* search bar */}
-      <div className='pt-3 pb-3 px-3'>
-        <input type="text" placeholder="Search Leagues " className="input bg-black border-white w-full" />
-      </div>
-
-      {/* slider leagues */}
-      <div className="carousel   bg-black carousel-center ">
-        <div className="carousel-item p-2 gap-2">
-          {
-            match.map((item, index) => (
-              <div key={index}>
-                < ImageCard image={item.team?.logo} />
-              </div>
-            ))
-
-          }
-        </div>
-      </div>
-
-
-
-      {/*show leagues details  */}
-      <div className='h-[100vh] overflow-y-scroll'>
-
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-        <TeamLeaguesCard image={"https://i.ibb.co/TDGYCdk/download.png"} name={" Manchester United"} title="Old Trafford" blog='England - 1881' />
-      </div>
-
     </div>
-  )
+  </main>
 }
